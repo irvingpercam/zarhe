@@ -8,6 +8,6 @@
 </head>
 <body>
     <h1>Home</h1>
-    Bienvenid@ <?php echo $nombre ?>
+    Bienvenid@ <?php echo $nombre ?? "Foráneo" ?>
 </body>
 </html>
