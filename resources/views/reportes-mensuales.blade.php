@@ -1,6 +1,6 @@
 @extends('layout')
-@section('title', 'Home') 
+@section('title', 'Reportes mensuales') 
 @section('content')
-    <h1>Home</h1>
+    <h1>Reportes mensuales</h1>
     <p>Bienvenid@ {{ $nombre ?? "Foráneo" }}</p>
 @endsection
