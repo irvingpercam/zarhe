@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tipos;
 use Illuminate\Http\Request;
 
 class TiposController extends Controller
@@ -13,12 +14,9 @@ class TiposController extends Controller
      */
     public function index()
     {
-        $tipos = [
-            ['title' => 'Tipos #1'],
-            ['title' => 'Tipos #2'],
-            ['title' => 'Tipos #3'],
-        ];
-        return view('tipos', compact('tipos'));
+        return view('tipos.index', [
+            'tipos' => Tipos::orderBy('Nombre', 'ASC')->get()
+        ]);
     }
 
     /**
@@ -28,7 +26,7 @@ class TiposController extends Controller
      */
     public function create()
     {
-        //
+        return view('tipos.create');
     }
 
     /**
@@ -37,9 +35,17 @@ class TiposController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $Name = request('Nombre');
+        $Name = preg_replace('/[\s_]/', '-', $Name);
+        Tipos::create([
+            'TipoID' => request('TipoID'),
+            'Nombre' => request('Nombre'),
+            'Siglas' => request('Siglas'),
+            'url' => strtolower($Name),
+        ]);
+        return redirect()->route('tipos.index');
     }
 
     /**
@@ -48,9 +54,11 @@ class TiposController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Tipos $tipo)
     {
-        //
+        return view('tipos.show', [
+            'tipo' => $tipo
+        ]);
     }
 
     /**

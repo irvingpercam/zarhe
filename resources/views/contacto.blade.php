@@ -2,7 +2,7 @@
 @section('title', 'Contacto') 
 @section('content')
     <h1>Contacto</h1>
-    <form method="POST" action="{{ route('contacto') }}">
+    <form method="POST" action="{{ route('messages.store') }}">
         @csrf
         <input type="text" name="name" placeholder="Nombre..." value="{{ old('name') }}">
         <br>{!! $errors->first('name', '<small>:message</small><br>') !!}
