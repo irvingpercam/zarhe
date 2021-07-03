@@ -14,8 +14,8 @@ class AddForeignKeysToTituloTable extends Migration
     public function up()
     {
         Schema::table('Titulo', function (Blueprint $table) {
-            $table->foreign('NRequeridoID', 'zahre_Titulo_NRequerido_NRequeridoID_fk')->references('NRequeridoID')->on('NRequerido')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-            $table->foreign('NivelID', 'zahre_Titulo_Nivel_NivelID_fk')->references('NivelID')->on('Nivel')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign('NRequeridoID', 'Titulo_NRequerido_NRequeridoID_fk')->references('NRequeridoID')->on('NRequerido')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign('NivelID', 'Titulo_Nivel_NivelID_fk')->references('NivelID')->on('Nivel')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -27,8 +27,8 @@ class AddForeignKeysToTituloTable extends Migration
     public function down()
     {
         Schema::table('Titulo', function (Blueprint $table) {
-            $table->dropForeign('zahre_Titulo_NRequerido_NRequeridoID_fk');
-            $table->dropForeign('zahre_Titulo_Nivel_NivelID_fk');
+            $table->dropForeign('Titulo_NRequerido_NRequeridoID_fk');
+            $table->dropForeign('Titulo_Nivel_NivelID_fk');
         });
     }
 }

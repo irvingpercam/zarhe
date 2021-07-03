@@ -14,8 +14,8 @@ class AddForeignKeysToVentaTable extends Migration
     public function up()
     {
         Schema::table('Venta', function (Blueprint $table) {
-            $table->foreign('ProductoID', 'Venta_Producto_ProductoID_fk')->references('ProductoID')->on('Producto')->onUpdate('NO ACTION')->onDelete('NO ACTION');
             $table->foreign('Numero', 'Venta_Distribuidor_Numero_fk')->references('Numero')->on('Distribuidor')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign('ProductoID', 'Venta_Producto_ProductoID_fk')->references('ProductoID')->on('Producto')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -27,8 +27,8 @@ class AddForeignKeysToVentaTable extends Migration
     public function down()
     {
         Schema::table('Venta', function (Blueprint $table) {
-            $table->dropForeign('Venta_Producto_ProductoID_fk');
             $table->dropForeign('Venta_Distribuidor_Numero_fk');
+            $table->dropForeign('Venta_Producto_ProductoID_fk');
         });
     }
 }

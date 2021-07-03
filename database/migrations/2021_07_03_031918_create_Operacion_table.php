@@ -14,7 +14,7 @@ class CreateOperacionTable extends Migration
     public function up()
     {
         Schema::create('Operacion', function (Blueprint $table) {
-            $table->integer('OperacionID')->primary();
+            $table->integer('OperacionID', true);
             $table->integer('NivelID')->nullable()->index('zahre_Operacion_Nivel_NivelID_fk');
             $table->integer('ReembolsoID')->nullable()->index('zahre_Operacion_Reembolso_ReembolsoID_fk');
             $table->integer('Porcentaje')->nullable();

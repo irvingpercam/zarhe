@@ -14,8 +14,8 @@ class AddForeignKeysToAsignacionTable extends Migration
     public function up()
     {
         Schema::table('Asignacion', function (Blueprint $table) {
-            $table->foreign('NivelID', 'Asignacion_Nivel_NivelID_fk')->references('NivelID')->on('Nivel')->onUpdate('NO ACTION')->onDelete('NO ACTION');
             $table->foreign('Numero', 'Asignacion_Distribuidor_Numero_fk')->references('Numero')->on('Distribuidor')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign('NivelID', 'Asignacion_Nivel_NivelID_fk')->references('NivelID')->on('Nivel')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -27,8 +27,8 @@ class AddForeignKeysToAsignacionTable extends Migration
     public function down()
     {
         Schema::table('Asignacion', function (Blueprint $table) {
-            $table->dropForeign('Asignacion_Nivel_NivelID_fk');
             $table->dropForeign('Asignacion_Distribuidor_Numero_fk');
+            $table->dropForeign('Asignacion_Nivel_NivelID_fk');
         });
     }
 }

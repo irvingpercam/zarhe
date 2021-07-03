@@ -14,7 +14,7 @@ class CreateVentaTable extends Migration
     public function up()
     {
         Schema::create('Venta', function (Blueprint $table) {
-            $table->integer('Folio')->primary();
+            $table->integer('Folio', true);
             $table->integer('ProductoID')->nullable()->index('Venta_Producto_ProductoID_fk');
             $table->integer('Numero')->nullable()->index('Venta_Distribuidor_UsuarioID_fk');
             $table->date('Fecha')->nullable();

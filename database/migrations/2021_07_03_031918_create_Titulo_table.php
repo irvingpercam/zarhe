@@ -14,7 +14,7 @@ class CreateTituloTable extends Migration
     public function up()
     {
         Schema::create('Titulo', function (Blueprint $table) {
-            $table->integer('TituloID')->primary();
+            $table->integer('TituloID', true);
             $table->integer('NivelID')->nullable()->index('zahre_Titulo_Nivel_NivelID_fk');
             $table->integer('NRequeridoID')->nullable()->index('zahre_Titulo_NRequerido_NRequeridoID_fk');
             $table->integer('Cantidad')->nullable();

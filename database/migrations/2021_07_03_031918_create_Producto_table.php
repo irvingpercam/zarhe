@@ -14,7 +14,7 @@ class CreateProductoTable extends Migration
     public function up()
     {
         Schema::create('Producto', function (Blueprint $table) {
-            $table->integer('ProductoID')->primary();
+            $table->integer('ProductoID', true);
             $table->integer('TipoID')->nullable()->index('zahre_Producto_Tipo_TipoID_fk');
             $table->integer('Clave')->nullable();
             $table->string('Descripcion', 50)->nullable();

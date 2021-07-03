@@ -14,8 +14,8 @@ class AddForeignKeysToOperacionTable extends Migration
     public function up()
     {
         Schema::table('Operacion', function (Blueprint $table) {
-            $table->foreign('NivelID', 'zahre_Operacion_Nivel_NivelID_fk')->references('NivelID')->on('Nivel')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-            $table->foreign('ReembolsoID', 'zahre_Operacion_Reembolso_ReembolsoID_fk')->references('ReembolsoID')->on('Reembolso')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign('NivelID', 'Operacion_Nivel_NivelID_fk')->references('NivelID')->on('Nivel')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign('ReembolsoID', 'Operacion_Reembolso_ReembolsoID_fk')->references('ReembolsoID')->on('Reembolso')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -27,8 +27,8 @@ class AddForeignKeysToOperacionTable extends Migration
     public function down()
     {
         Schema::table('Operacion', function (Blueprint $table) {
-            $table->dropForeign('zahre_Operacion_Nivel_NivelID_fk');
-            $table->dropForeign('zahre_Operacion_Reembolso_ReembolsoID_fk');
+            $table->dropForeign('Operacion_Nivel_NivelID_fk');
+            $table->dropForeign('Operacion_Reembolso_ReembolsoID_fk');
         });
     }
 }

@@ -14,7 +14,7 @@ class CreateDistribuidorTable extends Migration
     public function up()
     {
         Schema::create('Distribuidor', function (Blueprint $table) {
-            $table->integer('Numero')->primary();
+            $table->integer('Numero', true);
             $table->integer('UsuarioID')->nullable();
             $table->integer('Patrocinador')->nullable();
             $table->integer('NivelID')->nullable();

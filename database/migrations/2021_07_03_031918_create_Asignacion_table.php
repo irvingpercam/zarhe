@@ -14,7 +14,7 @@ class CreateAsignacionTable extends Migration
     public function up()
     {
         Schema::create('Asignacion', function (Blueprint $table) {
-            $table->integer('EstatusID')->primary();
+            $table->integer('EstatusID', true);
             $table->integer('Numero')->nullable()->index('Asignacion_Distribuidor_UsuarioID_fk');
             $table->integer('NivelID')->nullable()->index('Asignacion_Nivel_NivelID_fk');
             $table->date('Fecha')->nullable();

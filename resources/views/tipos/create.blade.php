@@ -5,11 +5,6 @@
     <form method="POST" action=" {{ route('tipos.store') }} ">
         @csrf
         <label for="">
-            ID del tipo <br>
-            <input type="number" name="TipoID">
-        </label>
-        <br>
-        <label for="">
             Nombre del tipo <br>
             <input type="text" name="Nombre">
         </label>

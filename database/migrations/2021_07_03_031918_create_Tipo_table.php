@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReembolsoTable extends Migration
+class CreateTipoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateReembolsoTable extends Migration
      */
     public function up()
     {
-        Schema::create('Reembolso', function (Blueprint $table) {
-            $table->integer('ReembolsoID')->primary();
-            $table->string('Nombre', 50)->nullable();
+        Schema::create('Tipo', function (Blueprint $table) {
+            $table->integer('TipoID', true);
+            $table->string('Nombre', 20)->nullable();
+            $table->string('Siglas', 3)->nullable();
+            $table->string('url');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateReembolsoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Reembolso');
+        Schema::dropIfExists('Tipo');
     }
 }

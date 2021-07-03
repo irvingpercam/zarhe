@@ -40,7 +40,6 @@ class TiposController extends Controller
         $Name = request('Nombre');
         $Name = preg_replace('/[\s_]/', '-', $Name);
         Tipos::create([
-            'TipoID' => request('TipoID'),
             'Nombre' => request('Nombre'),
             'Siglas' => request('Siglas'),
             'url' => strtolower($Name),
