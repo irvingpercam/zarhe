@@ -16,6 +16,7 @@ class CreateRolTable extends Migration
         Schema::create('Rol', function (Blueprint $table) {
             $table->integer('RolID', true);
             $table->string('Nombre', 50)->nullable();
+            $table->string('url');
         });
     }
 
