@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tipos;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateTiposRequest;
 
 class TiposController extends Controller
 {
@@ -35,7 +36,7 @@ class TiposController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(CreateTiposRequest $request)
     {
         $Name = request('Nombre');
         $Name = preg_replace('/[\s_]/', '-', $Name);

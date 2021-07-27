@@ -10,7 +10,8 @@ class Tipos extends Model
     public $timestamps = false;
     protected $table = 'Tipo';
     protected $primaryKey = 'TipoID';
-    protected $fillable = ['Nombre', 'Siglas', 'url'];
+    protected $guarded = [];
+    // protected $fillable = ['Nombre', 'Siglas', 'url'];
     // Search tipos by url
     public function getRouteKeyName()
     {
