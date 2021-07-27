@@ -40,6 +40,20 @@ class TiposController extends Controller
     {
         $Name = request('Nombre');
         $Name = preg_replace('/[\s_]/', '-', $Name);
+        // $data = request()->validate([
+        //     'Nombre' => 'required',
+        //     'Siglas' => 'required',
+        // ]);
+        // Tipos::create([
+        //     $request->validated()
+        //     'url' => strtolower($Name),
+        // ]);
+        // Tipos::create([
+        //     request()->only(
+        //         'Nombre',
+        //         'Siglas',),
+        //         'url' => strtolower($Name)
+        // ]);
         Tipos::create([
             'Nombre' => request('Nombre'),
             'Siglas' => request('Siglas'),
