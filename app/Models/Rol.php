@@ -10,7 +10,8 @@ class Rol extends Model
     public $timestamps = false;
     protected $table = 'Rol';
     protected $primaryKey = 'RolID';
-    protected $fillable = ['Nombre', 'url'];
+    protected $guarded = [];
+    // protected $fillable = ['Nombre', 'url'];
     // Search tipos by url
     public function getRouteKeyName()
     {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\NRequerido;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateNRequeridoRequest;
 
 class NRequeridoController extends Controller
 {
@@ -35,7 +36,7 @@ class NRequeridoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateNRequeridoRequest $request)
     {
         $Name = request('Nombre');
         $Name = preg_replace('/[\s_]/', '-', $Name);

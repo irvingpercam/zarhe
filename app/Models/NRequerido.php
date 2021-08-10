@@ -10,7 +10,8 @@ class NRequerido extends Model
     public $timestamps = false;
     protected $table = 'NRequerido';
     protected $primaryKey = 'RNRequeridoID';
-    protected $fillable = ['Nombre', 'url'];
+    protected $guarded = [];
+    // protected $fillable = ['Nombre', 'url'];
     // Search tipos by url
     public function getRouteKeyName()
     {
