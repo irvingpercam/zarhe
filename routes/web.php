@@ -43,11 +43,14 @@ Route::post('/roles', 'RolController@store')->name('roles.store');
 Route::get('/roles/{rol}', 'RolController@show')->name('roles.show');
 
 /* NRequerido */
-Route::get('/nrequerido', 'NRequeridoController@index')->name('nrequerido.index');
-Route::get('/nrequerido/crear', 'NRequeridoController@create')->name('nrequerido.create');
-Route::post('/nrequerido', 'NRequeridoController@store')->name('nrequerido.store');
-Route::get('/nrequerido/{nrequerido}', 'NRequeridoController@show')->name('nrequerido.show');
+// Route::get('/nrequerido', 'NRequeridoController@index')->name('nrequerido.index');
+// Route::get('/nrequerido/crear', 'NRequeridoController@create')->name('nrequerido.create');
+// Route::post('/nrequerido', 'NRequeridoController@store')->name('nrequerido.store');
+// Route::get('/nrequerido/{nrequerido}', 'NRequeridoController@show')->name('nrequerido.show');
 
+Route::resource('nrequerido', 'NRequeridoController')
+->names('nrequerido')
+->parameters(['nrequerido' => 'nrequerido']);
 
 /* Contacto & Messages */
 Route::get('contacto', 'ContactoController@index')->name('contacto');

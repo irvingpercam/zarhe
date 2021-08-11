@@ -66,9 +66,11 @@ class NRequeridoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(NRequerido $nrequerido)
     {
-        //
+        return view('nrequerido.edit', [
+            'nrequerido' => $nrequerido
+        ]);
     }
 
     /**
@@ -78,9 +80,13 @@ class NRequeridoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NRequerido $nrequerido, CreateNRequeridoRequest $request)
     {
-        //
+        $Name = request('Nombre');
+        $Name = preg_replace('/[\s_]/', '-', $Name);
+        $nrequerido->update($request->validated());
+        $nrequerido->update(array('url' => strtolower($Name)));
+        return redirect()->route('nrequerido.show', $nrequerido)->with('status', '¡El nivel fue actualizado con éxito!');
     }
 
     /**
@@ -89,8 +95,9 @@ class NRequeridoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(NRequerido $nrequerido)
     {
-        //
+        $nrequerido->delete();
+        return redirect()->route('nrequerido.index')->with('status', '¡El nivel fue eliminado con éxito!');
     }
 }

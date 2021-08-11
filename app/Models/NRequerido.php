@@ -9,7 +9,7 @@ class NRequerido extends Model
 {
     public $timestamps = false;
     protected $table = 'NRequerido';
-    protected $primaryKey = 'RNRequeridoID';
+    protected $primaryKey = 'NRequeridoID';
     protected $guarded = [];
     // protected $fillable = ['Nombre', 'url'];
     // Search tipos by url
