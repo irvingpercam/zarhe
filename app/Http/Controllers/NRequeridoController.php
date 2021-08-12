@@ -27,7 +27,9 @@ class NRequeridoController extends Controller
      */
     public function create()
     {
-        return view('nrequerido.create');
+        return view('nrequerido.create', [
+            'nrequerido' => new NRequerido
+        ]);
     }
 
     /**

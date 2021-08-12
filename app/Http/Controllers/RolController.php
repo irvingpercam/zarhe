@@ -27,7 +27,9 @@ class RolController extends Controller
      */
     public function create()
     {
-        return view('roles.create');
+        return view('roles.create', [
+            'rol' => new Rol
+        ]);
     }
 
     /**
@@ -66,9 +68,11 @@ class RolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Rol $rol)
     {
-        //
+        return view('roles.edit', [
+            'rol' => $rol
+        ]);
     }
 
     /**
@@ -78,9 +82,13 @@ class RolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Rol $rol, CreateRolRequest $request)
     {
-        //
+        $Name = request('Nombre');
+        $Name = preg_replace('/[\s_]/', '-', $Name);
+        $rol->update($request->validated());
+        $rol->update(array('url' => strtolower($Name)));
+        return redirect()->route('roles.show', $rol)->with('status', '¡El rol fue actualizado con éxito!');
     }
 
     /**
@@ -89,8 +97,9 @@ class RolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Rol $rol)
     {
-        //
+        $rol->delete();
+        return redirect()->route('roles.index')->with('status', '¡El rol fue eliminado con éxito!');
     }
 }

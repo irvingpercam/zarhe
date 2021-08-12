@@ -37,10 +37,14 @@ Route::post('/tipos', 'TiposController@store')->name('tipos.store');
 Route::get('/tipos/{tipo}', 'TiposController@show')->name('tipos.show');
 
 /* Roles */
-Route::get('/roles', 'RolController@index')->name('roles.index');
-Route::get('/roles/crear', 'RolController@create')->name('roles.create');
-Route::post('/roles', 'RolController@store')->name('roles.store');
-Route::get('/roles/{rol}', 'RolController@show')->name('roles.show');
+// Route::get('/roles', 'RolController@index')->name('roles.index');
+// Route::get('/roles/crear', 'RolController@create')->name('roles.create');
+// Route::post('/roles', 'RolController@store')->name('roles.store');
+// Route::get('/roles/{rol}', 'RolController@show')->name('roles.show');
+
+Route::resource('roles', 'RolController')
+->names('roles')
+->parameters(['roles' => 'rol']);
 
 /* NRequerido */
 // Route::get('/nrequerido', 'NRequeridoController@index')->name('nrequerido.index');
