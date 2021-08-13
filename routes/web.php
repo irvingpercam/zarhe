@@ -31,10 +31,14 @@ Route::get('ventas', 'VentasController@index')->name('ventas');
 /* Rutas en desarrollo */
 
 /* Tipos */
-Route::get('/tipos', 'TiposController@index')->name('tipos.index');
-Route::get('/tipos/crear', 'TiposController@create')->name('tipos.create');
-Route::post('/tipos', 'TiposController@store')->name('tipos.store');
-Route::get('/tipos/{tipo}', 'TiposController@show')->name('tipos.show');
+// Route::get('/tipos', 'TiposController@index')->name('tipos.index');
+// Route::get('/tipos/crear', 'TiposController@create')->name('tipos.create');
+// Route::post('/tipos', 'TiposController@store')->name('tipos.store');
+// Route::get('/tipos/{tipo}', 'TiposController@show')->name('tipos.show');
+
+Route::resource('tipos', 'TiposController')
+->names('tipos')
+->parameters(['tipos' => 'tipo']);
 
 /* Roles */
 // Route::get('/roles', 'RolController@index')->name('roles.index');

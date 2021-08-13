@@ -27,7 +27,9 @@ class TiposController extends Controller
      */
     public function create()
     {
-        return view('tipos.create');
+        return view('tipos.create', [
+            'tipo' => new Tipos
+        ]);
     }
 
     /**
@@ -67,9 +69,11 @@ class TiposController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tipos $tipo)
     {
-        //
+        return view('tipos.edit', [
+            'tipo' => $tipo
+        ]);
     }
 
     /**
@@ -79,9 +83,13 @@ class TiposController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Tipos $tipo, CreateTiposRequest $request)
     {
-        //
+        $Name = request('Nombre');
+        $Name = preg_replace('/[\s_]/', '-', $Name);
+        $tipo->update($request->validated());
+        $tipo->update(array('url' => strtolower($Name)));
+        return redirect()->route('tipos.show', $tipo)->with('status', '¡El tipo fue actualizado con éxito!');
     }
 
     /**
@@ -90,8 +98,9 @@ class TiposController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tipos $tipo)
     {
-        //
+        $tipo->delete();
+        return redirect()->route('tipos.index')->with('status', '¡El tipo fue eliminado con éxito!');
     }
 }
